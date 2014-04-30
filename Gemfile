@@ -7,8 +7,18 @@ gem 'rails', '4.0.0'
 gem 'mysql2'
 
 gem 'devise'
+gem 'devise-i18n-views'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+
 gem 'mandrill-api'
 gem 'geocoder'
+
+gem 'haml-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
