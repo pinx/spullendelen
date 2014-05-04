@@ -1,0 +1,6 @@
+nl:
+  devise:
+    registrations:
+      edit_account: Profiel bewerken
+    sessions:
+      sign_out: Afmelden

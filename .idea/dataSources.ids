@@ -2103,9 +2103,94 @@
       <column name="CURRENT_CONNECTIONS" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <column name="TOTAL_CONNECTIONS" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
     </table>
+    <table name="categories" schema="" catalog="spullendelen_development" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="short_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="position" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="circles" schema="" catalog="spullendelen_development" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="member_circles" schema="" catalog="spullendelen_development" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="member_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="circle_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="members" schema="" catalog="spullendelen_development" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nick_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="sur_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="date_of_birth" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="gender" sqlType="VARCHAR" length="1" precision="0" nullable="true" jdbcType="12"/>
+      <column name="website_url" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="about" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="asset_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="requests_for_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="accepted_by_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="lent_out_by_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="requests_by_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="to_be_picked_up_by_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="borrowed_by_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="to_be_reviewed_by_me_count" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="admin" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" def="MA=="/>
+      <column name="email" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="encrypted_password" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="reset_password_sent_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="remember_created_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="sign_in_count" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="current_sign_in_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="last_sign_in_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="current_sign_in_ip" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_ip" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="confirmation_token" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="confirmation_sent_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="street" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="latitude" sqlType="FLOAT" length="12" precision="0" nullable="true" jdbcType="7"/>
+      <column name="longitude" sqlType="FLOAT" length="12" precision="0" nullable="true" jdbcType="7"/>
+      <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_members_on_email" unique="true" columns="email"/>
+      <index name="index_members_on_reset_password_token" unique="true" columns="reset_password_token"/>
+    </table>
     <table name="schema_migrations" schema="" catalog="spullendelen_development" type="TABLE">
       <column name="version" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <index name="unique_schema_migrations" unique="true" columns="version"/>
+    </table>
+    <table name="things" schema="" catalog="spullendelen_development" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="owner_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="category_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="source" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="source_id" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="source_url" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="asset_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="creator" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="description" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="personal_story" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="borrow_everyone" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="borrow_circles" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="borrow_friends" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
   </data-source>
   <data-source source="LOCAL" name="Rails spullendelen: test" uuid="f3034828-d04a-4c72-8873-47799e2ef210">

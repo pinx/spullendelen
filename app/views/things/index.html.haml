@@ -1,0 +1,45 @@
+%h1 Listing things
+
+%table
+  %tr
+    %th Owner
+    %th Category
+    %th Source
+    %th Source
+    %th Source url
+    %th Asset
+    %th Name
+    %th Creator
+    %th Price
+    %th Description
+    %th Personal story
+    %th Borrow everyone
+    %th Borrow groups
+    %th Borrow friends
+    %th
+    %th
+    %th
+
+  - @things.each do |thing|
+    %tr
+      %td= thing.owner_id
+      %td= thing.category_id
+      %td= thing.source
+      %td= thing.source_id
+      %td= thing.source_url
+      %td= thing.asset_id
+      %td= thing.name
+      %td= thing.creator
+      %td= thing.price
+      %td= thing.description
+      %td= thing.personal_story
+      %td= thing.borrow_everyone
+      %td= thing.borrow_groups
+      %td= thing.borrow_friends
+      %td= link_to 'Show', thing
+      %td= link_to 'Edit', edit_thing_path(thing)
+      %td= link_to 'Destroy', thing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Thing', new_thing_path

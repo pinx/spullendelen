@@ -1,0 +1,52 @@
+= form_for @thing do |f|
+  - if @thing.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@thing.errors.count, "error")} prohibited this thing from being saved:"
+      %ul
+        - @thing.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :owner_id
+    = f.number_field :owner_id
+  .field
+    = f.label :category_id
+    = f.number_field :category_id
+  .field
+    = f.label :source
+    = f.text_field :source
+  .field
+    = f.label :source_id
+    = f.text_field :source_id
+  .field
+    = f.label :source_url
+    = f.text_field :source_url
+  .field
+    = f.label :asset_id
+    = f.number_field :asset_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :creator
+    = f.text_field :creator
+  .field
+    = f.label :price
+    = f.number_field :price
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :personal_story
+    = f.text_area :personal_story
+  .field
+    = f.label :borrow_everyone
+    = f.check_box :borrow_everyone
+  .field
+    = f.label :borrow_groups
+    = f.check_box :borrow_groups
+  .field
+    = f.label :borrow_friends
+    = f.check_box :borrow_friends
+  .actions
+    = f.submit 'Save'

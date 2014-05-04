@@ -1,6 +1,6 @@
 - if member_signed_in?
-    %li= link_to 'Edit account', edit_member_registration_path
-    %li= link_to 'Logout', destroy_member_session_path, :method=>'delete'
+    %li= link_to t('devise.registrations.edit_account', default: 'Edit account'), edit_member_registration_path
+    %li= link_to t('devise.sessions.sign_out'), destroy_member_session_path, :method=>'delete'
 - else
-    %li= link_to 'Login', new_member_session_path
-    %li= link_to 'Sign up', new_member_registration_path
+    %li= link_to t('devise.sessions.new.sign_in', default: 'Sign in'), new_member_session_path
+    %li= link_to t('devise.registrations.new.sign_up', default: 'Sign up'), new_member_registration_path

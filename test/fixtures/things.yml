@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  owner_id: 1
+  category_id: 1
+  source: MyString
+  source_id: MyString
+  source_url: MyString
+  asset_id: 1
+  name: MyString
+  creator: MyString
+  price: 1
+  description: MyText
+  personal_story: MyText
+  borrow_everyone: false
+  borrow_groups: false
+  borrow_friends: false
+
+two:
+  owner_id: 1
+  category_id: 1
+  source: MyString
+  source_id: MyString
+  source_url: MyString
+  asset_id: 1
+  name: MyString
+  creator: MyString
+  price: 1
+  description: MyText
+  personal_story: MyText
+  borrow_everyone: false
+  borrow_groups: false
+  borrow_friends: false
