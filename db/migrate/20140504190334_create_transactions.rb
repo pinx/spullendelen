@@ -5,6 +5,8 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :borrower_id
       t.integer :owner_id
       t.string :state
+
+      t.timestamps
     end
   end
 end

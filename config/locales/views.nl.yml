@@ -1,4 +1,8 @@
 nl:
+  my_details: Mijn gegevens
+  my_things: Mijn spullen
+  my_wishes: Mijn wensen
+  none: Geen
   devise:
     registrations:
       edit_account: Profiel bewerken

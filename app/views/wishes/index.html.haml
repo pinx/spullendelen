@@ -1,0 +1,25 @@
+%h1 Listing wishes
+
+%table
+  %tr
+    %th User
+    %th Thing
+    %th Description
+    %th Story
+    %th
+    %th
+    %th
+
+  - @wishes.each do |wish|
+    %tr
+      %td= wish.member_id
+      %td= wish.thing_id
+      %td= wish.description
+      %td= wish.story
+      %td= link_to 'Show', wish
+      %td= link_to 'Edit', edit_wish_path(wish)
+      %td= link_to 'Destroy', wish, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Wish', new_wish_path

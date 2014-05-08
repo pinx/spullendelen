@@ -3,7 +3,7 @@ class DeviseCreateMembers < ActiveRecord::Migration
     create_table(:members) do |t|
       t.string :nick_name
       t.string :first_name
-      t.string :sur_name
+      t.string :last_name
       t.date :date_of_birth
       t.string :gender, limit: 1
       t.string :website_url
@@ -16,7 +16,12 @@ class DeviseCreateMembers < ActiveRecord::Migration
       t.integer :to_be_picked_up_by_me_count, :default => 0
       t.integer :borrowed_by_me_count, :default => 0
       t.integer :to_be_reviewed_by_me_count
+      t.boolean :newsletter, :default => false
       t.boolean :admin, :default => false
+      t.string :facebook_id
+      t.string :twitter_id
+      t.string :google_id
+      t.string :picture_url
 
       ## Database authenticatable
       t.string :email, :null => false, :default => ""

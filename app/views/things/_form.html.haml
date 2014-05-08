@@ -5,13 +5,18 @@
       %ul
         - @thing.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :owner_id
-    = f.number_field :owner_id
   .field
     = f.label :category_id
-    = f.number_field :category_id
+    = select("thing", "category_id", Category.all.collect {|c| [ c.name.humanize, c.id ] }, {include_blank: t('none')})
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :story
+    = f.text_area :story
   .field
     = f.label :source
     = f.text_field :source
@@ -25,28 +30,25 @@
     = f.label :asset_id
     = f.number_field :asset_id
   .field
-    = f.label :name
-    = f.text_field :name
-  .field
     = f.label :creator
     = f.text_field :creator
   .field
     = f.label :price
     = f.number_field :price
   .field
-    = f.label :description
-    = f.text_area :description
+    = f.label :active_from
+    = f.date_select :active_from
   .field
-    = f.label :personal_story
-    = f.text_area :personal_story
+    = f.label :active_to
+    = f.date_select :active_to, default: Date.today + 5.years
   .field
     = f.label :borrow_everyone
-    = f.check_box :borrow_everyone
+    = f.check_box :borrow_everyone, {checked: true}
   .field
-    = f.label :borrow_groups
-    = f.check_box :borrow_groups
+    = f.label :borrow_circles
+    = f.check_box :borrow_circles, {checked: true}
   .field
     = f.label :borrow_friends
-    = f.check_box :borrow_friends
+    = f.check_box :borrow_friends, {checked: true}
   .actions
     = f.submit 'Save'

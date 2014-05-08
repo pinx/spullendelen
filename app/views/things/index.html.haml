@@ -22,7 +22,7 @@
 
   - @things.each do |thing|
     %tr
-      %td= thing.owner_id
+      %td= thing.member_id
       %td= thing.category_id
       %td= thing.source
       %td= thing.source_id
@@ -32,9 +32,9 @@
       %td= thing.creator
       %td= thing.price
       %td= thing.description
-      %td= thing.personal_story
+      %td= thing.story
       %td= thing.borrow_everyone
-      %td= thing.borrow_groups
+      %td= thing.borrow_circles
       %td= thing.borrow_friends
       %td= link_to 'Show', thing
       %td= link_to 'Edit', edit_thing_path(thing)

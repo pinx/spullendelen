@@ -1,10 +1,15 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:index, :edit, :destroy]
 
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.all
+    if @member
+      @things = @member.things
+    else
+      @things = Thing.all
+    end
   end
 
   # GET /things/1
@@ -25,7 +30,7 @@ class ThingsController < ApplicationController
   # POST /things.json
   def create
     @thing = Thing.new(thing_params)
-
+    @thing.member_id = current_member.id
     respond_to do |format|
       if @thing.save
         format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
@@ -41,7 +46,7 @@ class ThingsController < ApplicationController
   # PATCH/PUT /things/1.json
   def update
     respond_to do |format|
-      if @thing.update(thing_params)
+      if @thing.can_be_updated_by?(current_member) && @thing.update(thing_params)
         format.html { redirect_to @thing, notice: 'Thing was successfully updated.' }
         format.json { head :no_content }
       else
@@ -62,13 +67,19 @@ class ThingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_thing
-      @thing = Thing.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_thing
+    @thing = Thing.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def thing_params
-      params.require(:thing).permit(:owner_id, :category_id, :source, :source_id, :source_url, :asset_id, :name, :creator, :price, :description, :personal_story, :borrow_everyone, :borrow_groups, :borrow_friends)
-    end
+  def set_member
+    @member = nil
+    member_id = params[:member_id]
+    @member = Member.find(member_id) if member_id
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def thing_params
+    params.require(:thing).permit(:member_id, :category_id, :source, :source_id, :source_url, :asset_id, :name, :creator, :price, :description, :story, :borrow_everyone, :borrow_circles, :borrow_friends)
+  end
 end

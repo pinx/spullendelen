@@ -13,11 +13,11 @@ Spullendelen::Application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
 
   # Raise exceptions instead of rendering exception templates.
@@ -33,4 +33,13 @@ Spullendelen::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Switch to test mode: short-circuit request to omniauth provider to callback
+  # https://github.com/intridea/omniauth/wiki/Integration-Testing
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+                                                                   :provider => 'twitter',
+                                                                   :uid => '123545'
+                                                                   # etc.
+                                                               })
 end

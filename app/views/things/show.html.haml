@@ -2,10 +2,10 @@
 
 %p
   %b Owner:
-  = @thing.owner_id
+  = @thing.member.name
 %p
   %b Category:
-  = @thing.category_id
+  = @thing.category.name if @thing.category
 %p
   %b Source:
   = @thing.source
@@ -32,13 +32,13 @@
   = @thing.description
 %p
   %b Personal story:
-  = @thing.personal_story
+  = @thing.story
 %p
   %b Borrow everyone:
   = @thing.borrow_everyone
 %p
-  %b Borrow groups:
-  = @thing.borrow_groups
+  %b Borrow circles:
+  = @thing.borrow_circles
 %p
   %b Borrow friends:
   = @thing.borrow_friends
