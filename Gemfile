@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.1'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'pg'
 
 gem 'devise'
 gem 'devise-i18n-views'
@@ -47,7 +47,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.0.0.beta2'
+  gem 'spring-commands-rspec'
+  gem 'faker'
 end
 
 group :doc do
