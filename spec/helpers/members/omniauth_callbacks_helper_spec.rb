@@ -11,7 +11,7 @@ require 'spec_helper'
 #   end
 # end
 
-describe Members::OmniauthCallbacksControllerHelper do
+describe Members::OmniauthCallbacksHelper do
   # Do we set this here, or in the environments/test.rb ???
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
