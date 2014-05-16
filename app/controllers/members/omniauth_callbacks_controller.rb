@@ -1,6 +1,6 @@
 # See https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
 
-class Members::OmniauthCallbacksControllerController < Devise::OmniauthCallbacksController
+class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     # You need to implement the method below in your model (e.g. app/models/user.rb)
     @member = Member.find_for_facebook_oauth(request.env["omniauth.auth"])
