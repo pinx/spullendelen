@@ -221,12 +221,11 @@ Devise.setup do |config|
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html]
 
-  # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
-
   #Bron: https://github.com/mohitjain/social-login-in-rails/blob/master/config/initializers/devise.rb
   require 'devise/orm/active_record'
 
+  # The default HTTP method used to sign out a resource. Default is :delete.
+  # omniauth requires :get
   config.sign_out_via = :get
   config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], { :scope => 'r_fullprofile, r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}

@@ -42,4 +42,5 @@ Spullendelen::Application.configure do
                                                                    :uid => '123545'
                                                                    # etc.
                                                                })
+
 end

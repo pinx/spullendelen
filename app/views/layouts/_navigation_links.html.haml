@@ -1,5 +1,5 @@
 - if member_signed_in?
-    %li= link_to t('my_things', default: 'My things'), member_things_path(current_member)
+    %li= link_to t('my_things', default: 'My things'), my_things_path
     %li= link_to t('my_wishes', default: 'My wishes'), member_wishes_path(current_member)
     %li= link_to t('my_details', default: 'My details'), edit_member_path(current_member)
     %li= link_to t('devise.registrations.edit_account', default: 'Edit account'), edit_member_registration_path

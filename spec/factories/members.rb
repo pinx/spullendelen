@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :member do
     nick_name Faker::Name.name
-    email Faker::Internet.email
+    email {Faker::Internet.email}
     password { 'sharestuff' }
   end
 end

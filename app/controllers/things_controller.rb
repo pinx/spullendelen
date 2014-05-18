@@ -1,15 +1,21 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
   before_action :set_member, only: [:index, :edit, :destroy]
-
+  skip_before_action :authenticate_member!, only: :index   # visitors are allowed to see the list of things
   respond_to :html
 
   def index
     if @member
-      @things = @member.things
+      @things = @member.things.decorate
     else
-      @things = Thing.all
+      @things = Thing.all.decorate
     end
+  end
+
+  def my
+    @member = current_member
+    @things = current_member.things.decorate
+    render :index
   end
 
   def new

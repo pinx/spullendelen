@@ -21,10 +21,12 @@
     %th
 
   - @things.each do |thing|
-    %tr
-      %td= thing.member_id
+    %tr[thing]
+      -if current_member
+        %td.member_name
+          = thing.member_name
       %td= thing.category_id
-      %td= thing.source
+      %td= thing[:source]
       %td= thing.source_id
       %td= thing.source_url
       %td= thing.asset_id
@@ -36,9 +38,11 @@
       %td= thing.borrow_everyone
       %td= thing.borrow_circles
       %td= thing.borrow_friends
-      %td= link_to 'Show', thing
-      %td= link_to 'Edit', edit_thing_path(thing)
-      %td= link_to 'Destroy', thing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -if current_member
+        %td= link_to 'Show', thing
+        -if thing.member_id == current_member.id
+          %td= link_to 'Edit', edit_thing_path(thing)
+          %td= link_to 'Destroy', thing, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

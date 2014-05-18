@@ -23,7 +23,7 @@ describe WishesController do
   # This should return the minimal set of attributes required to create a valid
   # Wish. As you add validations to Wish, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "user_id" => "1" } }
+  let(:valid_attributes) { { "member_id" => "1" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe WishesController do
       it "assigns a newly created but unsaved wish as @wish" do
         # Trigger the behavior that occurs when invalid params are submitted
         Wish.any_instance.stub(:save).and_return(false)
-        post :create, {:wish => { "user_id" => "invalid value" }}, valid_session
+        post :create, {:wish => { "member_id" => "invalid value" }}, valid_session
         assigns(:wish).should be_a_new(Wish)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Wish.any_instance.stub(:save).and_return(false)
-        post :create, {:wish => { "user_id" => "invalid value" }}, valid_session
+        post :create, {:wish => { "member_id" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe WishesController do
         # specifies that the Wish created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Wish.any_instance.should_receive(:update).with({ "user_id" => "1" })
-        put :update, {:id => wish.to_param, :wish => { "user_id" => "1" }}, valid_session
+        Wish.any_instance.should_receive(:update).with({ "member_id" => "1" })
+        put :update, {:id => wish.to_param, :wish => { "member_id" => "1" }}, valid_session
       end
 
       it "assigns the requested wish as @wish" do
@@ -128,7 +128,7 @@ describe WishesController do
         wish = Wish.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Wish.any_instance.stub(:save).and_return(false)
-        put :update, {:id => wish.to_param, :wish => { "user_id" => "invalid value" }}, valid_session
+        put :update, {:id => wish.to_param, :wish => { "member_id" => "invalid value" }}, valid_session
         assigns(:wish).should eq(wish)
       end
 
@@ -136,7 +136,7 @@ describe WishesController do
         wish = Wish.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Wish.any_instance.stub(:save).and_return(false)
-        put :update, {:id => wish.to_param, :wish => { "user_id" => "invalid value" }}, valid_session
+        put :update, {:id => wish.to_param, :wish => { "member_id" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

@@ -1,5 +1,6 @@
 Spullendelen::Application.routes.draw do
   get "home/index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,6 +13,9 @@ Spullendelen::Application.routes.draw do
     resources :things
     resources :wishes
   end
+
+  get 'member/things', to: 'things#my', as: 'my_things'
+  get 'member/wishes', to: 'wishes#my', as: 'my_wishes'
 
   resources :wishes
   resources :circles

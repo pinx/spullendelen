@@ -23,6 +23,8 @@ gem 'geocoder'
 gem 'state_machine'
 
 gem 'haml-rails'
+# Model decorators
+gem 'draper'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -51,6 +53,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'spring-commands-rspec'
   gem 'faker'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
 group :doc do
